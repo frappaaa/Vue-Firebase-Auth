@@ -5,13 +5,13 @@ import store from './store'
 import firebase from 'firebase'
 
 var firebaseConfig = {
-    apiKey: "AIzaSyATI7RzkFl7GSB224rfKcCW9ceW1Wj6sUw",
-    authDomain: "budget-app-da9b5.firebaseapp.com",
-    projectId: "budget-app-da9b5",
-    storageBucket: "budget-app-da9b5.appspot.com",
-    messagingSenderId: "512478554191",
-    appId: "1:512478554191:web:0097b12b63f4908315223a",
-    measurementId: "G-WDRB9NQZ6K"
+    apiKey: process.env.VUE_APP_FIREBASE_APIKEY,
+    authDomain: process.env.VUE_APP_FIREBASE_AUTH_DOMAIN,
+    projectId: process.env.VUE_APP_PROJECT_ID,
+    storageBucket: process.env.VUE_APP_STORAGE_BUCKET,
+    messagingSenderId: process.env.VUE_APP_MESSAGING_SENDER_ID,
+    appId: process.env.VUE_APP_APP_ID,
+    measurementId: process.env.VUE_APP_MEASUREMENT_ID
   };
   // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
