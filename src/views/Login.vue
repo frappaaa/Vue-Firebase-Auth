@@ -1,5 +1,5 @@
 <template>
-  <div id="form-login">
+  <div id="page-login">
     <form
       class="login"
       @submit.prevent="loginUser"
@@ -29,11 +29,15 @@
       <h3>Need an account?</h3>
       <router-link to="/signup">Sign Up</router-link>
     </div>
+
   </div>
 </template>
 
 <script>
-import firebase from "firebase";
+import firebase from "firebase/app";
+import "firebase/auth";
+import "@animxyz/core";
+
 export default {
   name: "Login",
   data() {
@@ -49,7 +53,7 @@ export default {
         .signInWithEmailAndPassword(this.email, this.password)
         .then(
           (user) => {
-            console.log(user.data);
+            alert(user.data);
           },
           (err) => {
             alert(err);
@@ -61,4 +65,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+#page-login {
+  width: 500px;
+  margin: auto;
+  form {
+    display: grid;
+    place-content: center;
+    grid-gap: 20px;
+    input {
+      border: 0;
+      border-radius: 20px;
+      padding: 10px 30px;
+      &[type="submit"] {
+        border-radius: 10px;
+        text-transform: uppercase;
+        cursor: pointer;
+      }
+    }
+  }
+}
 </style>
