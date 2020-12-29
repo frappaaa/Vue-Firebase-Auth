@@ -26,16 +26,14 @@
       >
     </form>
     <hr>
-
-    <h3
-      @click="loginGitHub"
-      class="button-github"
-    >Want to login with GitHub? Click here</h3>
-
-    <h3
-      @click="loginGoogle"
-      class="button-google"
-    >Want to login with Google? Click here</h3>
+    <div class="button-github">
+      <h3 @click="loginGitHub">Want to login with GitHub? Click here</h3>
+      <img src="https://s.svgbox.net/social.svg?ic=github&fill=000000">
+    </div>
+    <div class="button-google">
+      <img src="https://s.svgbox.net/social.svg?ic=google&fill=000000">
+      <h3 @click="loginGoogle">Want to login with Google? Click here</h3>
+    </div>
 
     <hr>
     <div class="signup-banner">
