@@ -146,6 +146,10 @@ export default {
     border-radius: 20px;
     padding: 20px;
     cursor: pointer;
+    display: grid;
+    grid-template-column: 50px 1fr;
+    grid-gap: 10px;
+    place-content: center;
   }
 }
 </style>
