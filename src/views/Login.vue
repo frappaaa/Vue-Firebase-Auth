@@ -28,10 +28,16 @@
     <hr>
     <div class="button-github">
       <h3 @click="loginGitHub">Want to login with GitHub? Click here</h3>
-      <img src="https://s.svgbox.net/social.svg?ic=github&fill=000000">
+      <img
+        src="https://s.svgbox.net/social.svg?ic=github&fill=000000"
+        width="45px"
+      >
     </div>
     <div class="button-google">
-      <img src="https://s.svgbox.net/social.svg?ic=google&fill=000000">
+      <img
+        src="https://s.svgbox.net/social.svg?ic=google&fill=000000"
+        width="45px"
+      >
       <h3 @click="loginGoogle">Want to login with Google? Click here</h3>
     </div>
 
