@@ -30,16 +30,16 @@
       <h3 @click="loginGitHub">Want to login with GitHub? Click here</h3>
       <img
         src="https://s.svgbox.net/social.svg?ic=github&fill=000000"
-        width="45"
-        height="45"
+        width="35"
+        height="35"
       >
     </div>
     <div class="button-google">
       <h3 @click="loginGoogle">Want to login with Google? Click here</h3>
       <img
         src="https://s.svgbox.net/social.svg?ic=google&fill=000000"
-        width="45"
-        height="45"
+        width="35"
+        height="35"
       >
     </div>
 
