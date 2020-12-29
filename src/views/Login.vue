@@ -155,7 +155,7 @@ export default {
     padding: 20px;
     cursor: pointer;
     display: grid;
-    grid-template-column: 1fr 50px;
+    grid-template-columns: 1fr 50px;
     grid-gap: 10px;
     place-content: center;
   }
