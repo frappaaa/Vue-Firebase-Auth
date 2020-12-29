@@ -35,12 +35,12 @@
       >
     </div>
     <div class="button-google">
+      <h3 @click="loginGoogle">Want to login with Google? Click here</h3>
       <img
         src="https://s.svgbox.net/social.svg?ic=google&fill=000000"
         width="45px"
         height="45px"
       >
-      <h3 @click="loginGoogle">Want to login with Google? Click here</h3>
     </div>
 
     <hr>
@@ -158,6 +158,9 @@ export default {
     grid-template-columns: 1fr 50px;
     grid-gap: 10px;
     place-content: center;
+    h3 {
+      margin: auto;
+    }
   }
 }
 </style>
