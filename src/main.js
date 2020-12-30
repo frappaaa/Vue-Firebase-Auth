@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import firebase from 'firebase'
+import './index.css'
 
 var firebaseConfig = {
     apiKey: process.env.VUE_APP_FIREBASE_APIKEY,
