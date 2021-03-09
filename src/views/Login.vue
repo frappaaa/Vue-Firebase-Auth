@@ -1,10 +1,10 @@
 <template>
-  <div class="form-login bg-yellow-300">
-    <div class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+  <div class="form-login">
+    <div class=" flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div class="max-w-md w-full space-y-8">
         <div>
           <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
-            Login with your account
+            Entra con il tuo account
           </h2>
         </div>
         <form
@@ -23,7 +23,7 @@
               <label
                 for="email-address"
                 class="sr-only"
-              >Email address</label>
+              >Indirizzo Email</label>
               <input
                 id="email-address"
                 name="email"
@@ -65,7 +65,7 @@
                 for="remember_me"
                 class="ml-2 block text-sm text-gray-900"
               >
-                Remember me
+                Ricordami
               </label>
             </div>
 
@@ -74,7 +74,7 @@
                 href="#"
                 class="font-medium text-indigo-600 hover:text-indigo-500"
               >
-                Forgot your password?
+                Hai dimenticato la password?
               </a>
             </div>
 

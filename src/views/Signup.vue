@@ -1,10 +1,10 @@
 <template>
-  <div class="form-signup bg-yellow-300">
-    <div class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+  <div class="form-signup">
+    <div class=" flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div class="max-w-md w-full space-y-8">
         <div>
           <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
-            Create your new account
+            Crea un nuovo account
           </h2>
         </div>
         <form
@@ -21,16 +21,32 @@
           <div class="rounded-md shadow-sm -space-y-px">
             <div>
               <label
+                for="name"
+                class="sr-only"
+              >Nome completo</label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                autocomplete="name"
+                required
+                class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                placeholder="Nome completo"
+                v-model="name"
+              >
+            </div>
+            <div>
+              <label
                 for="email-address"
                 class="sr-only"
-              >Email address</label>
+              >Indirizzo Email</label>
               <input
                 id="email-address"
                 name="email"
                 type="email"
                 autocomplete="email"
                 required
-                class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="Email address"
                 v-model="email"
               >
@@ -65,7 +81,7 @@
                 for="remember_me"
                 class="ml-2 block text-sm text-gray-900"
               >
-                Remember me
+                Ricardami
               </label>
             </div>
 
@@ -74,7 +90,7 @@
                 href="#"
                 class="font-medium text-indigo-600 hover:text-indigo-500"
               >
-                Forgot your password?
+                Hai dimenticato la password?
               </a>
             </div>
           </div>
@@ -100,10 +116,34 @@
                   />
                 </svg>
               </span>
-              Sign in
+              Registrati
             </button>
           </div>
         </form>
+        <div class="grid grid-flow-col grid-cols-2 gap-4">
+          <button
+            @click="loginGitHub"
+            class="group relative w-full flex justify-center p-4 border border-transparent text-sm font-medium rounded-lg text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          >
+            <img
+              src="https://s.svgbox.net/social.svg?ic=github&fill=ffffff"
+              width="35"
+              height="35"
+              class="m-auto"
+            >
+          </button>
+          <button
+            @click="loginGoogle"
+            class="group relative w-full flex justify-center p-4 border border-transparent text-sm font-medium rounded-lg text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          >
+            <img
+              src="https://s.svgbox.net/social.svg?ic=google&fill=ffffff"
+              width="35"
+              height="35"
+              class="m-auto"
+            >
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -113,10 +153,14 @@
 import firebase from "firebase/app";
 import "firebase/auth";
 
+var github = new firebase.auth.GithubAuthProvider();
+var google = new firebase.auth.GoogleAuthProvider();
+
 export default {
   name: "Signup",
   data() {
     return {
+      name:"",
       email: "",
       password: "",
     };
@@ -134,6 +178,50 @@ export default {
             alert(err);
           }
         );
+    },
+    loginGitHub: function () {
+      firebase
+        .auth()
+        .signInWithPopup(github)
+        .then(function (result) {
+          // This gives you a GitHub Access Token. You can use it to access the GitHub API.
+          var token = result.credential.accessToken;
+          // The signed-in user info.
+          var user = result.user;
+          // ...
+        })
+        .catch(function (error) {
+          // Handle Errors here.
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          // The email of the user's account used.
+          var email = error.email;
+          // The firebase.auth.AuthCredential type that was used.
+          var credential = error.credential;
+          // ...
+        });
+    },
+    loginGoogle: function () {
+      firebase
+        .auth()
+        .signInWithPopup(google)
+        .then(function (result) {
+          // This gives you a GitHub Access Token. You can use it to access the GitHub API.
+          var token = result.credential.accessToken;
+          // The signed-in user info.
+          var user = result.user;
+          // ...
+        })
+        .catch(function (error) {
+          // Handle Errors here.
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          // The email of the user's account used.
+          var email = error.email;
+          // The firebase.auth.AuthCredential type that was used.
+          var credential = error.credential;
+          // ...
+        });
     },
   },
 };
